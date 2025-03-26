@@ -17,7 +17,7 @@ const SplashScreen = ({ navigation }) => {
                 </Text>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => navigation.navigate('HomeScreen')} // Navigate to HomeScreen or any other screen
+                    onPress={() => navigation.navigate('first')} // Navigate to HomeScreen or any other screen
                 >
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
