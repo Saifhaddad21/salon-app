@@ -10,14 +10,15 @@ const SplashScreen = ({ navigation }) => {
                 source={require('../assets/images/SplashScreen.jpg')}
                 style={styles.image}
             />
+            <View style={styles.darkOverlay} />
             <View style={styles.overlay}>
-                
+                <Text style={styles.title}>Welcome to On Time</Text>
                 <Text style={styles.subtitle}>
-                    We're here to make scheduling your services quick and easy.
+                    we're here make scheduling your services,{'\n'}quick and easy
                 </Text>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => navigation.navigate('first')} // Navigate to HomeScreen or any other screen
+                    onPress={() => navigation.navigate('HomeScreen')}
                 >
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
@@ -29,47 +30,55 @@ const SplashScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
     },
     image: {
-        width: width,  // Set image width based on screen width
-        height: height * 0.6, // Set image height as 60% of the screen height
-        resizeMode: 'cover', // Make sure image covers the container proportionally
+        width: width,
+        height: height,
+        resizeMode: 'cover',
+    },
+    darkOverlay: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: '#000000',
+        opacity: 0.4, // Adjust this value to make it darker or lighter
     },
     overlay: {
         position: 'absolute',
-        bottom: 30, // Place the text and button at the bottom of the screen
-        width: '90%',  // 90% of screen width for padding
+        bottom: 100,
+        left: 0,
+        right: 0,
         alignItems: 'center',
-        justifyContent: 'center',
         paddingHorizontal: 20,
     },
     title: {
-        fontSize: width * 0.08, // Title size based on screen width
+        fontSize: 28,
         fontWeight: 'bold',
         color: '#fff',
         marginBottom: 10,
         textAlign: 'center',
     },
     subtitle: {
-        fontSize: width * 0.05, // Subtitle size based on screen width
+        fontSize: 16,
         color: '#fff',
         textAlign: 'center',
-        marginBottom: 20,
+        marginBottom: 40,
+        lineHeight: 24,
     },
     button: {
-        backgroundColor: '#FF6F61',
-        paddingVertical: 12,
-        paddingHorizontal: 50,
-        borderRadius: 50,
-        alignItems: 'center',
+        backgroundColor: '#D4A574',
+        paddingVertical: 15,
+        paddingHorizontal: 60,
+        borderRadius: 30,
+        width: '80%',
     },
     buttonText: {
         color: '#fff',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '600',
+        textAlign: 'center',
     },
 });
 

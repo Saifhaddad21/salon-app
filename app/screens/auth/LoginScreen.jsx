@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const SplashScreenNav = () => {
+const LoginScreen = () => {
     return (
         <View>
-            <Text>SplashScreenNav</Text>
+            <Text>LoginScreen</Text>
         </View>
     )
 }
 
-export default SplashScreenNav
+export default LoginScreen
