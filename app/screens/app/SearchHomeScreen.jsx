@@ -4,10 +4,9 @@ import { salonsData } from '../../data/salonsData';
 
 const { width } = Dimensions.get('window');
 
-// Example salon images (you can replace these with real data and images)
 
 
-const HomeScreen = ({ navigation }) => {
+const SearchHomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             {/* Header */}
@@ -19,7 +18,6 @@ const HomeScreen = ({ navigation }) => {
                         style={styles.searchInput}
                         placeholder="Search here"
                         placeholderTextColor="#999"
-                        onPress={() => navigation.navigate('SearchHomeScreen')}
                     />
                     <TouchableOpacity style={styles.filterButton}
                         onPress={() => navigation.navigate('TapfilterButton')}
@@ -32,41 +30,9 @@ const HomeScreen = ({ navigation }) => {
                 </View>
             </View>
 
-            {/* Banner Image */}
-            <Image
-                source={require('../../assets/images/salon-banner.jpg')}
-                style={styles.bannerImage}
-            />
-
-            {/* Recent Booking Section */}
-            <View style={styles.section}>
-                <View style={styles.sectionHeader}>
-                    <Text style={styles.sectionTitle}>Recent Booking</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.viewAll}>View All</Text>
-                    </TouchableOpacity>
-                </View>
-                <FlatList
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    data={salonsData}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => (
-                        <TouchableOpacity style={styles.salonItem}>
-                            <Image source={item.image} style={styles.salonImage} />
-                            <Text style={styles.salonName}>{item.name}</Text>
-                        </TouchableOpacity>
-                    )}
-                />
-            </View>
-
-            {/* Salons Section */}
             <View style={styles.section}>
                 <View style={styles.sectionHeader}>
                     <Text style={styles.sectionTitle}>Saloons</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.viewAll}>View All</Text>
-                    </TouchableOpacity>
                 </View>
                 <FlatList
                     horizontal
@@ -81,7 +47,6 @@ const HomeScreen = ({ navigation }) => {
                     )}
                 />
             </View>
-
             {/* Bottom Navigation */}
             <View style={styles.bottomNav}>
                 <TouchableOpacity style={styles.navItem}>
@@ -113,6 +78,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        borderColor: 'C5AA96',
     },
     header: {
         padding: 20,
@@ -216,4 +182,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default SearchHomeScreen;

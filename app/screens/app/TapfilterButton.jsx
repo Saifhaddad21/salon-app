@@ -1,28 +1,24 @@
 import React from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity, FlatList, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, FlatList, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { salonsData } from '../../data/salonsData';
 
 const { width } = Dimensions.get('window');
 
-// Example salon images (you can replace these with real data and images)
 
 
-const HomeScreen = ({ navigation }) => {
+export const TapfilterButton = ({ navigation }) => {
     return (
         <View style={styles.container}>
             {/* Header */}
             <View style={styles.header}>
-                <Text style={styles.welcomeTitle}>Welcome</Text>
-                <Text style={styles.welcomeName}>Salma!</Text>
                 <View style={styles.searchContainer}>
                     <TextInput
                         style={styles.searchInput}
                         placeholder="Search here"
                         placeholderTextColor="#999"
-                        onPress={() => navigation.navigate('SearchHomeScreen')}
                     />
                     <TouchableOpacity style={styles.filterButton}
-                        onPress={() => navigation.navigate('TapfilterButton')}
+                        onPress={() => navigation.navigate('SalonProfileScreen')}
                     >
                         <Image
                             source={require('../../assets/images/filter.png')}
@@ -32,56 +28,45 @@ const HomeScreen = ({ navigation }) => {
                 </View>
             </View>
 
-            {/* Banner Image */}
-            <Image
-                source={require('../../assets/images/salon-banner.jpg')}
-                style={styles.bannerImage}
-            />
-
-            {/* Recent Booking Section */}
             <View style={styles.section}>
                 <View style={styles.sectionHeader}>
-                    <Text style={styles.sectionTitle}>Recent Booking</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.viewAll}>View All</Text>
-                    </TouchableOpacity>
+                    <Text style={styles.sectionTitle}>Services</Text>
                 </View>
-                <FlatList
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    data={salonsData}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => (
-                        <TouchableOpacity style={styles.salonItem}>
-                            <Image source={item.image} style={styles.salonImage} />
-                            <Text style={styles.salonName}>{item.name}</Text>
-                        </TouchableOpacity>
-                    )}
-                />
+                <ScrollView>
+                    <Text>
+                        Hair Color , Makeup ,  Nails , Spa , Hairstyle , Facial Makeup ,short Haircut , Short Haircut , Makeup
+                    </Text>
+                </ScrollView>
             </View>
-
-            {/* Salons Section */}
             <View style={styles.section}>
                 <View style={styles.sectionHeader}>
-                    <Text style={styles.sectionTitle}>Saloons</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.viewAll}>View All</Text>
-                    </TouchableOpacity>
+                    <Text style={styles.sectionTitle}>Address</Text>
                 </View>
-                <FlatList
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    data={salonsData}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => (
-                        <TouchableOpacity style={styles.salonItem}>
-                            <Image source={item.image} style={styles.salonImage} />
-                            <Text style={styles.salonName}>{item.name}</Text>
-                        </TouchableOpacity>
-                    )}
-                />
+                <ScrollView>
+                    <Text>
+                        Doha , Lusail , Alkor , Dukhan, Umm Salal
+                    </Text>
+                </ScrollView>
             </View>
-
+            <View style={styles.section}>
+                <View style={styles.sectionHeader}>
+                    <Text style={styles.sectionTitle}>Sort By</Text>
+                </View>
+                <ScrollView>
+                    <Text>
+                        Most Popular
+                    </Text>
+                    <Text>
+                        Most Popular
+                    </Text>
+                    <Text>
+                        Most Popular
+                    </Text>
+                    <Text>
+                        Most Popular
+                    </Text>
+                </ScrollView>
+            </View>
             {/* Bottom Navigation */}
             <View style={styles.bottomNav}>
                 <TouchableOpacity style={styles.navItem}>
@@ -113,6 +98,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        borderColor: 'C5AA96',
     },
     header: {
         padding: 20,
@@ -216,4 +202,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default TapfilterButton;
